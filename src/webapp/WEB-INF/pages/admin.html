@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>hello admin</title>
+</head>
+<body>
+<table>
+<!--  <thead>-->
+  <tr>
+    <th>Id</th>
+    <th>Login</th>
+    <th>Password</th>
+    <th>Email</th>
+    <th>Number</th>
+  </tr>
+
+  </thead>
+  <tbody>
+  <tr th:each="user : ${allUsers}">
+    <td th:text="${user.id}">Id</td>
+    <td th:text="${user.name}">Login</td>
+    <td th:text="${user.password}">Password</td>
+    <td th:text="${user.email}">Email</td>
+    <td th:text="${user.number}">Number</td>
+    <td>
+      <form th:action="@{delete/{id}(id=${user.getId()})}" th:object="${user}">
+        <input type="hidden" name="id" th:value="${user.getId()}">
+        <button type="submit">Удалить</button>
+      </form>
+    </td>
+  </tr>
+  </tbody>
+
+</table>
+
+</body>
+</html>
