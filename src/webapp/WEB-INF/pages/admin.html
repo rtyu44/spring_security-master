@@ -7,7 +7,6 @@
 </head>
 <body>
 <table>
-<!--  <thead>-->
   <tr>
     <th>Id</th>
     <th>Login</th>
@@ -18,15 +17,15 @@
 
   </thead>
   <tbody>
-  <tr th:each="user : ${allUsers}">
-    <td th:text="${user.id}">Id</td>
-    <td th:text="${user.name}">Login</td>
-    <td th:text="${user.password}">Password</td>
-    <td th:text="${user.email}">Email</td>
-    <td th:text="${user.number}">Number</td>
+  <tr th:each="users : ${allUsers}">
+    <td th:text="${users.id}">Id</td>
+    <td th:text="${users.name}">Login</td>
+    <td th:text="${users.password}">Password</td>
+    <td th:text="${users.email}">Email</td>
+    <td th:text="${users.number}">Number</td>
     <td>
-      <form th:action="@{delete/{id}(id=${user.getId()})}" th:object="${user}">
-        <input type="hidden" name="id" th:value="${user.getId()}">
+      <form th:action="@{delete/{id}(id=${users.getId()})}" th:object="${users}">
+        <input type="hidden" name="id" th:value="${users.getId()}">
         <button type="submit">Удалить</button>
       </form>
     </td>
@@ -34,6 +33,5 @@
   </tbody>
 
 </table>
-
 </body>
 </html>

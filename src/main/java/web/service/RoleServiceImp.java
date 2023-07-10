@@ -13,6 +13,7 @@ import java.util.List;
 @Service
 @Transactional
 public class RoleServiceImp implements RoleService{
+//    @Autowired
     private RoleDaoImp roleDaoImp;
 
 //    @Autowired
